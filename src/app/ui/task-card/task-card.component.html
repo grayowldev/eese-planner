@@ -1,0 +1,15 @@
+
+<div class="container">
+<!--  <p-checkbox [binary]="true" name="test" [(ngModel)]="isChecked" (onChange)="onTaskChecked($event)"></p-checkbox>-->
+  <div>
+    <span class="material-symbols-outlined" (click)="onTaskChecked($event)">{{icon}}</span>
+  </div>
+  <div>
+    <span class="title">{{task.title}}</span>
+    <span> [priority: {{task.priority}} ]</span>
+  </div>
+  <div class="delete-button">
+    <span class="material-symbols-outlined" (click)="removeTask()">delete</span>
+  </div>
+
+</div>
