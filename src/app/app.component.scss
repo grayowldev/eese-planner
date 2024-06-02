@@ -1,0 +1,90 @@
+
+.add-task-form-container {
+  margin-bottom: 18px;
+  input {
+    margin-right: 8px;
+    width: 80% //TODO: fix this later
+  }
+}
+.close-button-container {
+  margin-bottom: 64px;
+}
+.close-span-container {
+  float: right;
+}
+.container {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: 42px 1fr 28px;
+  height: 100vh;
+  //background: #ECEDF1;
+  background: black;
+}
+.detail-panel-sections {
+  margin-bottom: 24px;
+}
+.detail-panel-container {
+  overflow: auto;
+  margin-top: 210px;
+  margin-right: 14px;
+  height: 20vh;
+  //background: snow;
+  background: wheat;
+  border-radius: 14px;
+  padding: 14px;
+}
+.detail-panel-task-title {
+  margin-bottom: 24px;
+  font-size: 32px;
+}
+.task-card-container {
+  margin-bottom: 12px;
+}
+.tasks-container {
+  overflow: auto;
+  //height: 100vh;
+  margin-left: 30px;
+  padding: 20px  //TODO: remove this later
+}
+
+.title {
+  text-align: center;
+  //margin-bottom: 32px;
+  font-size: 22px;
+  margin-top: 8px;
+  color: white;
+}
+
+.product-selection-container {
+  //display: grid;
+  //grid-template-columns: 10px 1fr;
+
+  left: 0;
+  height: 100vh;
+  color: white;
+  //background: black;
+  .products {
+    margin-top: 620px;
+  }
+}
+
+.content-container {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  display: grid;
+  grid-template-columns: 360px 5fr 430px;
+  //margin-top: 48px;
+  border-radius: 12px 0 0 12px;
+  background: white;
+}
+.product-menu {
+  background: lightblue;
+  border-radius: 12px 0 0 12px;
+}
+.title-container {
+  grid-column: 2/3;
+}
+.hide-products {
+  //margin-top: 18px;
+  //margin-left: 32px;
+}
