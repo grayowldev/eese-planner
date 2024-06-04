@@ -8,6 +8,7 @@ import {Task} from "../models/task";
 import {NgForOf, NgIf} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {DropdownModule} from "primeng/dropdown";
+import {SubTask} from "../models/subTask";
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import {DropdownModule} from "primeng/dropdown";
 })
 export class AppComponent implements OnInit{
   newTask: string = '';
+  newSubtask: string = '';
   priority: Task["priority"] = 'C'
   title = 'eese';
   selectedTask: Task = {};
@@ -26,6 +28,7 @@ export class AppComponent implements OnInit{
     'A', 'B', 'C', 'D', 'E']
   detailSidebarVisible = false;
   productsVisible = false;
+  subTaskVisible = false;
 
   constructor(private taskService: TaskService) {
   }
@@ -86,8 +89,21 @@ export class AppComponent implements OnInit{
     task.title = this.newTask;
     task.status = 'todo';
     task.priority = 'C';
+    task.subtasks = [];
     this.taskService.addTask(task)
     this.newTask = ''
+  }
+  // Subtasks
+  showSubtasks() {
+    this.subTaskVisible = true;
+  }
+  addSubtask() {
+    console.log('add subtask clicked.')
+    const subtask: SubTask = {}
+    subtask.title = this.newSubtask;
+    subtask.status = 'todo';
+    this.newSubtask = '';
+    this.taskService.addSubtask(this.selectedTask, subtask)
   }
   updatePriority() {
     console.log('updated priority')

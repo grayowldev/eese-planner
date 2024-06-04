@@ -1,15 +1,19 @@
 
-<div class="container "[ngClass]="getClass()">
-<!--  <p-checkbox [binary]="true" name="test" [(ngModel)]="isChecked" (onChange)="onTaskChecked($event)"></p-checkbox>-->
+<div class="container "[ngClass]="this.task.status == 'completed' ? 'completed-task': ''">
   <div>
     <span class="material-symbols-outlined" (click)="onTaskChecked($event)">{{icon}}</span>
   </div>
-  <div>
+  <div class="title-container">
     <span class="title">{{task.title}}</span>
-    <span> [priority: {{task.priority}} ]</span>
+<!--    <span> [priority: {{task.priority}} ]</span>-->
   </div>
   <div class="delete-button">
     <span class="material-symbols-outlined" (click)="removeTask()">delete</span>
+  </div>
+  <div class="tag-container">
+    <div>
+      <div class="tag-item" [ngClass]="getClass()">{{task.priority}}</div>
+    </div>
   </div>
 
 </div>

@@ -51,7 +51,9 @@ export class TaskCardComponent implements OnInit{
       'priority-red' : this.task.priority == 'A',
       'priority-orange' : this.task.priority == 'B',
       'priority-light-blue' : this.task.priority == 'D',
-      'priority-blue' : this.task.priority == 'E'
+      'priority-blue' : this.task.priority == 'E',
+      'completed-task': this.task.status == 'completed'
     }
   }
+
 }

@@ -1,14 +1,17 @@
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 22px 1fr 22px;
+  grid-template-rows: 28px 24px;
   border: solid #F2F2F2;
-  border-radius: 12px;
-  padding: 16px;
+  border-radius: 8px;
+  padding: 12px;
 }
 .delete-button {
   margin-left: auto;
 }
 .title {
   margin-left: 8px;
+  padding-top: 2px;
 }
 .material-symbols-outlined {
  font-variation-settings:
@@ -18,18 +21,40 @@
    'opsz' 24
 }
 .priority-red {
-  border: solid red;
+  background: red;
+  color: white;
 }
 .priority-orange {
-  border: solid orange;
+  background: orange;
 }
 .priority-light-blue {
-  border: solid lightblue;
+  background: lightblue;
+  color: blue;
 }
 .priority-blue {
-  border: solid blue;
+  background: blue;
+  color: white;
 }
-.completed {
+.completed-task {
+  background: lightslategray;
+  color: white;
+}
+.tag-container {
+  grid-column: 2/3;
+  grid-row: 2/3;
 
+}
+.tag-item {
+  width: fit-content;
+  margin: 4px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 30px;
+  //background: lightskyblue;
+  //color: blue;
+  font-size: 14px;
+}
+.title-container {
+  padding-top: 2px;
 }
 

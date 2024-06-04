@@ -1,24 +1,23 @@
 <div class="container">
-
-  <div class="product-selection-container">
-    <div class="products">
-      <div>
-        <span>Goals</span>
-      </div>
-      <div>
-        <span>Planner</span>
-      </div>
-      <div>
-        <span>Tasks</span>
-      </div>
-      <div>
-        <span>Calendar</span>
-      </div>
-      <div>
-        <span>Habit</span>
-      </div>
-    </div>
-  </div>
+<!--  <div class="product-selection-container">-->
+<!--    <div class="products">-->
+<!--      <div>-->
+<!--        <span>Goals</span>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <span>Planner</span>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <span>Tasks</span>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <span>Calendar</span>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <span>Habit</span>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
   <div class="title-container">
 <!--    <div>-->
 <!--      <span class="material-symbols-outlined hide-products">switch_left</span>-->
@@ -26,9 +25,9 @@
     <h1 class="title">EESE</h1>
   </div>
   <div class="content-container">
-    <div class="product-menu">
-    </div>
-    <div class="task-schedule"></div>
+<!--    <div class="product-menu">-->
+<!--    </div>-->
+<!--    <div class="task-schedule"></div>-->
     <div class="tasks-container">
       <div class="task-input-container">
         <div class="add-task-form-container">
@@ -70,7 +69,15 @@
       <div class="detail-panel-sections">
         <span>Status: {{selectedTask.status}}</span>
       </div>
-      <div>Add subtask: <button>+</button></div>
+      <div>Add subtask: <button (click)="showSubtasks()">+</button></div>
+      <div *ngIf="subTaskVisible">
+        <input [(ngModel)]="newSubtask"/>
+        <button (click)="addSubtask()">Add subTask</button>
+      </div>
+      <div *ngFor="let task of selectedTask.subtasks">
+        <span>{{task.title}}</span>
+        <span class="show-on-hover material-symbols-outlined">edit</span>
+      </div>
     </div>
   </div>
 </div>
