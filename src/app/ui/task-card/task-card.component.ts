@@ -2,12 +2,14 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Task} from "../../../models/task";
 import {TaskService} from "../../services/task.service";
 import {FormsModule} from "@angular/forms";
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'task-card',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    NgClass
   ],
   templateUrl: './task-card.component.html',
   styleUrl: './task-card.component.scss'
@@ -43,5 +45,13 @@ export class TaskCardComponent implements OnInit{
   removeTask() {
     console.log('remove clicked')
     this.taskService.removeTask(this.task.id)
+  }
+  getClass() {
+    return {
+      'priority-red' : this.task.priority == 'A',
+      'priority-orange' : this.task.priority == 'B',
+      'priority-light-blue' : this.task.priority == 'D',
+      'priority-blue' : this.task.priority == 'E'
+    }
   }
 }

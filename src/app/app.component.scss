@@ -72,7 +72,7 @@
   grid-column: 2/3;
   grid-row: 2/3;
   display: grid;
-  grid-template-columns: 360px 5fr 430px;
+  grid-template-columns: 360px 400px 1fr 430px;
   //margin-top: 48px;
   border-radius: 12px 0 0 12px;
   background: white;
@@ -87,4 +87,7 @@
 .hide-products {
   //margin-top: 18px;
   //margin-left: 32px;
+}
+.task-schedule {
+  background: pink;
 }

@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container "[ngClass]="getClass()">
 <!--  <p-checkbox [binary]="true" name="test" [(ngModel)]="isChecked" (onChange)="onTaskChecked($event)"></p-checkbox>-->
   <div>
     <span class="material-symbols-outlined" (click)="onTaskChecked($event)">{{icon}}</span>
