@@ -1,0 +1,90 @@
+:host {
+  padding: 32px;
+}
+.panel-info-grid {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  margin-bottom: 8px;
+  .grid-section-left {
+    grid-column: 1/2;
+  }
+  .grid-section-right {
+    grid-column: 2/3;
+  }
+}
+.subtask-container {
+  .subtask-list {
+    display: grid;
+    grid-template-columns: 38px 1fr 34px;
+    padding-top: 2px;
+    .horizontal-divider {
+      grid-column: 1/4;
+      height: 1px;
+      width: 100%;
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+  }
+
+  .icon-text {
+    margin-top: 2px;
+  }
+
+  .add-task-button-container {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+
+    .add-task-button-label {
+      margin-top: 4px;
+    }
+  }
+}
+
+.panel-section {
+  //border: solid crimson;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.show-on-hover {
+  .edit {
+    opacity: 0;
+  }
+}
+.show-on-hover:hover {
+  .edit {
+    opacity: 1;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+.p-inputtext {
+  width: 100%
+}
+.buttons-container {
+  margin-top: 8px;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  .span-button {
+    margin-left: 8px;
+  }
+}
+.panel-options-container {
+  background: pink;
+  display: flex;
+  justify-content: right;
+  .close-span-container {
+    margin-left: 8px;
+    width: fit-content;
+    right: 0;
+  }
+}
+
+.task-title {
+  margin-bottom: 24px;
+  font-size: 32px;
+}
+
