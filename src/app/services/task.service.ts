@@ -40,4 +40,11 @@ export class TaskService {
     console.log(selectedTask)
     this.firestoreService.updateDocument('tasks', selectedTask.id, selectedTask)
   }
+  updateSubtask() {
+
+  }
+
+  removeSubtask() {
+
+  }
 }

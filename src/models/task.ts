@@ -3,8 +3,12 @@ import {SubTask} from "./subTask";
 export interface Task {
   id?: any,
   title?: string,
-  status?: 'completed' | 'todo' | 'in-progress',
-  priority?: 'A' | 'B' | 'C' | 'D' | 'E',
+  description?: string,
+  status?: 'Completed' | 'Todo' | 'In-progress' | 'completed' | 'todo' | 'in-progress',
+  priority?: 'Critical' | 'High' | 'Medium' | 'Low' | 'Trivial',
   subtasks?: SubTask[]
+  startDate?: Date,
+  dueDate?: Date
+  tags?: string[]
 
 }

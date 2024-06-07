@@ -1,4 +1,4 @@
 export interface SubTask {
   title?: string,
-  status?: 'completed' | 'todo' | 'in-progress',
+  status?: 'Completed' | 'Todo' | 'In-progress',
 }
