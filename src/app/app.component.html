@@ -58,6 +58,18 @@
         <span>{{selectedTask.title}}</span>
       </div>
       <div class="detail-panel-sections">
+        <span>Status: {{selectedTask.status}}</span>
+      </div>
+      <div>
+        <span>Description</span>
+      </div>
+      <div>
+        <span>Start date:</span> - <span>Due date:</span>
+      </div>
+      <div>
+        <div>Tags</div>
+      </div>
+      <div class="detail-panel-sections">
         <span>Priority: {{selectedTask.priority}}</span>
         <p-dropdown
           [options]="priorities"
@@ -66,18 +78,17 @@
           (onChange)="updatePriority()"
         ></p-dropdown>
       </div>
-      <div class="detail-panel-sections">
-        <span>Status: {{selectedTask.status}}</span>
+
+      <div *ngFor="let task of selectedTask.subtasks">
+        <span>{{task.title}}</span>
+        <span class="show-on-hover material-symbols-outlined">edit</span>
       </div>
       <div>Add subtask: <button (click)="showSubtasks()">+</button></div>
       <div *ngIf="subTaskVisible">
         <input [(ngModel)]="newSubtask"/>
         <button (click)="addSubtask()">Add subTask</button>
       </div>
-      <div *ngFor="let task of selectedTask.subtasks">
-        <span>{{task.title}}</span>
-        <span class="show-on-hover material-symbols-outlined">edit</span>
-      </div>
+      <div>Attachments</div>
     </div>
   </div>
 </div>
