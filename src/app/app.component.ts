@@ -9,24 +9,24 @@ import {NgForOf, NgIf} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {DropdownModule} from "primeng/dropdown";
 import {SubTask} from "../models/subTask";
+import {DetailPanelComponent} from "./ui/detail-panel/detail-panel.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ButtonModule, TaskCardComponent, InputTextModule, NgForOf, FormsModule, NgIf, DropdownModule],
+  imports: [RouterOutlet, ButtonModule, TaskCardComponent, InputTextModule, NgForOf, FormsModule, NgIf, DropdownModule, DetailPanelComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit{
   newTask: string = '';
-  newSubtask: string = '';
-  priority: Task["priority"] = 'C'
+  priority: Task["priority"] = 'Medium'
   title = 'eese';
   selectedTask: Task = {};
   tasks: Task[] = [];
   priorities:Task['priority'][] = [
-    'A', 'B', 'C', 'D', 'E']
-  detailSidebarVisible = false;
+    'Critical', 'High', 'Medium', 'Low', 'Trivial']
+  detailSidebarVisible = true; //TODO: change to false
   productsVisible = false;
   subTaskVisible = false;
 
@@ -43,10 +43,10 @@ export class AppComponent implements OnInit{
     this.tasks.sort((a,b) => {
       let finalPriority = 0;
       if (
-        (a.status === 'todo' && b.status === 'completed') || (a.status == null && b.status === 'completed')) {
+        (a.status === 'Todo' && b.status === 'Completed') || (a.status == null && b.status === 'Completed')) {
         finalPriority -= 2;
         // return -1;
-      } else if ((b.status === 'completed' && a.status === 'todo') || (b.status === 'completed' && a.status === null)) {
+      } else if ((b.status === 'Completed' && a.status === 'Todo') || (b.status === 'Completed' && a.status === null)) {
         finalPriority += 2;
         // return 1;
       } else {
@@ -65,10 +65,10 @@ export class AppComponent implements OnInit{
         // }
       }
       if (a.priority === undefined) {
-        a.priority = 'C';
+        a.priority = 'Medium';
       }
       if (b.priority === undefined) {
-        b.priority ='C';
+        b.priority ='Medium';
       }
       if (a.priority < b.priority) {
         finalPriority -= 1;
@@ -87,32 +87,11 @@ export class AppComponent implements OnInit{
   addTask() {
     const task: Task = {};
     task.title = this.newTask;
-    task.status = 'todo';
-    task.priority = 'C';
+    task.status = 'Todo';
+    task.priority = 'Medium';
     task.subtasks = [];
     this.taskService.addTask(task)
     this.newTask = ''
-  }
-  // Subtasks
-  showSubtasks() {
-    this.subTaskVisible = true;
-  }
-  addSubtask() {
-    console.log('add subtask clicked.')
-    const subtask: SubTask = {}
-    subtask.title = this.newSubtask;
-    subtask.status = 'todo';
-    this.newSubtask = '';
-    this.taskService.addSubtask(this.selectedTask, subtask)
-  }
-  updatePriority() {
-    console.log('updated priority')
-    if (this.selectedTask) {
-      this.selectedTask.priority = this.priority;
-      this.taskService.updateTask(this.selectedTask)
-    } else {
-      console.log('no task selected')
-    }
   }
   showDetails(task: Task) {
     this.priority = task.priority;
@@ -123,3 +102,4 @@ export class AppComponent implements OnInit{
     this.detailSidebarVisible = false;
   }
 }
+

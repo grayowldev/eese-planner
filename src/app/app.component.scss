@@ -6,6 +6,7 @@
   }
 }
 .close-button-container {
+  border: solid 1px red;
   margin-bottom: 64px;
 }
 .close-span-container {
@@ -18,6 +19,7 @@
   background: black;
 }
 .detail-panel-sections {
+  border: solid 1px red;
   margin-bottom: 24px;
 }
 .detail-panel-container {
@@ -29,8 +31,11 @@
   background: wheat;
   border-radius: 14px;
   padding: 14px;
+  padding-left: 56px;
+  padding-right: 56px;
 }
 .detail-panel-task-title {
+  border: solid 1px red;
   margin-bottom: 24px;
   font-size: 32px;
 }
@@ -64,7 +69,7 @@
   grid-column: 1/3;
   grid-row: 2/3;
   display: grid;
-  grid-template-columns: 1fr 430px;
+  grid-template-columns: 1fr 512px;
   border-radius: 12px 0 0 12px;
   background: white;
 }
@@ -78,9 +83,6 @@
 .task-schedule {
   background: pink;
 }
-.show-on-hover {
-  opacity: 0;
-}
-.show-on-hover:hover {
-  opacity: 1;
-}
+
+
+

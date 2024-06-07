@@ -23,7 +23,7 @@ export class TaskCardComponent implements OnInit{
   }
 
   ngOnInit() {
-    if (this.task.status == 'completed') {
+    if (this.task.status == 'Completed') {
       this.isChecked = true;
       this.icon = 'check_box';
     } else {
@@ -39,7 +39,7 @@ export class TaskCardComponent implements OnInit{
     this.updateTask(this.isChecked)
   }
   updateTask(isChecked: boolean) {
-    this.task.status = isChecked ? 'completed' : 'todo';
+    this.task.status = isChecked ? 'Completed' : 'Todo';
     this.taskService.updateTask(this.task)
   }
   removeTask() {
@@ -48,11 +48,11 @@ export class TaskCardComponent implements OnInit{
   }
   getClass() {
     return {
-      'priority-red' : this.task.priority == 'A',
-      'priority-orange' : this.task.priority == 'B',
-      'priority-light-blue' : this.task.priority == 'D',
-      'priority-blue' : this.task.priority == 'E',
-      'completed-task': this.task.status == 'completed'
+      'priority-red' : this.task.priority == 'Critical',
+      'priority-orange' : this.task.priority == 'High',
+      'priority-light-blue' : this.task.priority == 'Low',
+      'priority-blue' : this.task.priority == 'Trivial',
+      'completed-task': this.task.status == 'Completed'
     }
   }
 
