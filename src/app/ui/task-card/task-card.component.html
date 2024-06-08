@@ -1,19 +1,17 @@
-
-<div class="container "[ngClass]="this.task.status == 'Completed' ? 'completed-task': ''">
+<div class="container " [ngClass]="this.task.status == 'Completed' ? 'completed-task': ''">
   <div>
-    <span class="material-symbols-outlined" (click)="onTaskChecked($event)">{{icon}}</span>
+    <span class="material-symbols-outlined clickable" (click)="onTaskChecked($event)">{{icon}}</span>
   </div>
-  <div class="title-container">
+  <div class="title-container" (click)="showDetails()">
     <span class="title">{{task.title}}</span>
-<!--    <span> [priority: {{task.priority}} ]</span>-->
   </div>
-  <div class="delete-button">
+  <div class="delete-button clickable">
     <span class="material-symbols-outlined" (click)="removeTask()">delete</span>
   </div>
-  <div class="tag-container">
+  <div class="tag-container" (click)="showDetails()">
     <div>
       <div class="tag-item" [ngClass]="getClass()">{{task.priority}}</div>
     </div>
   </div>
-
 </div>
+<!--TODO: Add a clickable area for show details-->

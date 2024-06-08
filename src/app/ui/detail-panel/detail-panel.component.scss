@@ -1,5 +1,23 @@
-:host {
-  padding: 32px;
+//:host {
+//  padding: 32px;
+//}
+.container {
+  width: 620px;
+  height: 100%;
+}
+.panel-options-container {
+  padding: 24px 18px;
+  //background: pink;
+  display: flex;
+  justify-content: right;
+  .close-span-container {
+    margin-left: 8px;
+    width: fit-content;
+    right: 0;
+  }
+}
+.panel-content-container {
+  padding: 0 64px 32px;
 }
 .panel-info-grid {
   display: grid;
@@ -72,19 +90,8 @@
     margin-left: 8px;
   }
 }
-.panel-options-container {
-  background: pink;
-  display: flex;
-  justify-content: right;
-  .close-span-container {
-    margin-left: 8px;
-    width: fit-content;
-    right: 0;
-  }
-}
 
 .task-title {
   margin-bottom: 24px;
   font-size: 32px;
 }
-

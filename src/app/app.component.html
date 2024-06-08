@@ -25,9 +25,6 @@
     <h1 class="title">EESE</h1>
   </div>
   <div class="content-container">
-<!--    <div class="product-menu">-->
-<!--    </div>-->
-<!--    <div class="task-schedule"></div>-->
     <div class="tasks-container">
       <div class="task-input-container">
         <div class="add-task-form-container">
@@ -42,24 +39,36 @@
       <div class="task-card-container" *ngFor="let task of tasks">
         <task-card
           [task]="task"
-          (click)="showDetails(task)">
+          (triggerDetailPanel)="showDetails(task)">
           <h1>Task card</h1>
         </task-card>
       </div>
+    </div>
+  </div>
+
+<div class="detail-panel-container" *ngIf="detailSidebarVisible">
+  <div class="panel-container">
+    <app-detail-panel
+      [task]="selectedTask">
+    </app-detail-panel>
+  </div>
+  <div class="panel-overlay" (click)="hideDetails()">
 
   </div>
-  <div class="detail-panel-container" *ngIf="detailSidebarVisible">
-    <div class="close-button-container">
-      <div class="close-span-container">
-        <span class="material-symbols-outlined" (click)="hideDetails()">Close</span>
-      </div>
-    </div>
-    <div>
-      <app-detail-panel
-      [task]="selectedTask">
-      </app-detail-panel>
-    </div>
-  </div>
-  </div>
+</div>
+
+
+<!--  <div class="detail-panel-container" *ngIf="detailSidebarVisible">-->
+<!--    <div class="close-button-container">-->
+<!--      <div class="close-span-container">-->
+<!--        <span class="material-symbols-outlined" (click)="hideDetails()">Close</span>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="detail-panel-container2">-->
+<!--      <app-detail-panel-->
+<!--        [task]="selectedTask">-->
+<!--      </app-detail-panel>-->
+<!--    </div>-->
+<!--  </div>-->
 </div>
 <router-outlet />

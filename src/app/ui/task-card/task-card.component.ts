@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Task} from "../../../models/task";
 import {TaskService} from "../../services/task.service";
 import {FormsModule} from "@angular/forms";
@@ -15,10 +15,12 @@ import {NgClass} from "@angular/common";
   styleUrl: './task-card.component.scss'
 })
 export class TaskCardComponent implements OnInit{
+
+  @Input() task: Task = {};
+  @Output() triggerDetailPanel = new EventEmitter<void>();
+
   isChecked = false;
   icon: "check_box_outline_blank" | "check_box" = 'check_box_outline_blank';
-  @Input() task: Task = {};
-
   constructor(private taskService: TaskService) {
   }
 
@@ -54,6 +56,10 @@ export class TaskCardComponent implements OnInit{
       'priority-blue' : this.task.priority == 'Trivial',
       'completed-task': this.task.status == 'Completed'
     }
+  }
+
+  showDetails() {
+    this.triggerDetailPanel.emit()
   }
 
 }

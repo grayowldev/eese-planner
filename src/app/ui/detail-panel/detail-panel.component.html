@@ -1,4 +1,4 @@
-<div class="">
+<div class="container">
   <div class="panel-options-container">
     <div class="close-span-container">
       <span class="material-symbols-outlined" *ngIf="!editMode" (click)="toggleEditMode()">edit</span>
@@ -7,93 +7,86 @@
       <span class="material-symbols-outlined">Close</span>
     </div>
   </div>
+  <div class="panel-content-container">
+    <div class="task-title">
+      <span>{{task.title}}</span>
+    </div>
+    <div class="panel-info-grid" *ngIf="!editMode">
+      <span class="grid-section-left">Status:</span>
+      <span class="grid-section-right">{{task.status}}</span>
+    </div>
+    <div class="panel-info-grid" *ngIf="editMode">
+      <span class="grid-section-left">Status:</span>
+      <p-dropdown
+        [options]="statuses"
+        placeholder="{{task.status}}"
+        [(ngModel)]="editTask.status"
+        (onChange)="updateStatus()"
+      ></p-dropdown>
+    </div>
 
-  <div class="task-title">
-    <span>{{task.title}}</span>
-  </div>
-  <div class="panel-info-grid" *ngIf="!editMode">
-    <span class="grid-section-left">Status:</span>
-    <span class="grid-section-right">{{task.status}}</span>
-  </div>
-  <div class="panel-info-grid" *ngIf="editMode">
-    <span class="grid-section-left">Status:</span>
-    <p-dropdown
-      [options]="statuses"
-      placeholder="{{task.status}}"
-      [(ngModel)]="editTask.status"
-      (onChange)="updateStatus()"
-    ></p-dropdown>
-  </div>
+    <div class="panel-info-grid" *ngIf="!editMode">
+      <span class="grid-section-left">Priority:</span>
+      <span class="grid-section-right">{{task.priority}}</span>
+    </div>
+    <div class="panel-info-grid" *ngIf="editMode">
+      <span class="grid-section-left">Priority:</span>
+      <p-dropdown
+        [options]="priorities"
+        placeholder="{{task.priority}}"
+        [(ngModel)]="editTask.priority"
+        (onChange)="updatePriority()">
+      </p-dropdown>
+    </div>
 
-  <div class="panel-info-grid" *ngIf="!editMode">
-    <span class="grid-section-left">Priority:</span>
-    <span class="grid-section-right">{{task.priority}}</span>
-  </div>
-  <div class="panel-info-grid" *ngIf="editMode">
-    <span class="grid-section-left">Priority:</span>
-    <p-dropdown
-      [options]="priorities"
-      placeholder="{{task.priority}}"
-      [(ngModel)]="editTask.priority"
-      (onChange)="updatePriority()">
-    </p-dropdown>
-  </div>
+    <div class="panel-info-grid" *ngIf="!editMode">
+      <span class="grid-section-left">Start date</span>
+      <span class="grid-section-right">{{task.startDate? task.startDate : 'None'}}</span>
+    </div>
+    <div class="panel-info-grid" *ngIf="editMode">
+      <span class="grid-section-left">Start date</span>
+      <input pInputText placeholder="{{task.startDate}}" [(ngModel)]="editTask.startDate"/>
+    </div>
+    <div class="panel-info-grid" *ngIf="!editMode">
+      <span class="grid-section-left">Due date</span>
+      <span class="grid-section-right">{{task.dueDate? task.dueDate : 'None'}}</span>
+    </div>
+    <div class="panel-info-grid" *ngIf="editMode">
+      <span class="grid-section-left">Due date</span>
+      <input pInputText placeholder="{{task.dueDate}}" [(ngModel)]="editTask.dueDate"/>
+    </div>
+    <div class="panel-info-grid" *ngIf="!editMode">
+      <span class="grid-section-left">tags</span>
+      <span class="grid-section-right">{{task.tags? 'Has Tags' : 'None'}}</span>
+    </div>
 
-  <div class="panel-info-grid" *ngIf="!editMode">
-    <span class="grid-section-left">Start date</span>
-    <span class="grid-section-right">{{task.startDate? task.startDate : 'None'}}</span>
-  </div>
-  <div class="panel-info-grid" *ngIf="editMode">
-    <span class="grid-section-left">Start date</span>
-    <input pInputText placeholder="{{task.startDate}}" [(ngModel)]="editTask.startDate"/>
-  </div>
-  <div class="panel-info-grid" *ngIf="!editMode">
-    <span class="grid-section-left">Due date</span>
-    <span class="grid-section-right">{{task.dueDate? task.dueDate : 'None'}}</span>
-  </div>
-  <div class="panel-info-grid" *ngIf="editMode">
-    <span class="grid-section-left">Due date</span>
-    <input pInputText placeholder="{{task.dueDate}}" [(ngModel)]="editTask.dueDate"/>
-  </div>
-  <div class="panel-info-grid" *ngIf="!editMode">
-    <span class="grid-section-left">tags</span>
-    <span class="grid-section-right">{{task.tags? 'Has Tags' : 'None'}}</span>
-  </div>
-<!--  <div class="panel-section">-->
-<!--    <div>-->
-<!--      <span>Description</span>-->
-<!--    </div>-->
-<!--  </div>-->
-  <div class="panel-section">
-    <div class="subtask-container">
-      <div class="subtask-list show-on-hover" *ngFor="let subtask of task.subtasks">
+    <div class="panel-section">
+      <div class="subtask-container">
+        <div class="subtask-list show-on-hover" *ngFor="let subtask of task.subtasks">
         <span class="material-symbols-outlined clickable" (click)="completeSubtask(subtask)">
           {{subtask.status === 'Completed' ? 'check_circle' : 'radio_button_unchecked'}}</span>
-        <span class="icon-text">{{subtask.title}}</span>
-        <span class="edit material-symbols-outlined">edit</span>
-        <hr class="horizontal-divider">
+          <span class="icon-text">{{subtask.title}}</span>
+          <span class="edit material-symbols-outlined">edit</span>
+          <hr class="horizontal-divider">
+        </div>
+        <div class="add-task-button-container clickable" *ngIf="!newSubtaskMode" (click)="toggleNewSubtaskInputs()">
+          <span class="material-symbols-outlined">add</span> <span class="add-task-button-label">Add subtask</span> </div>
       </div>
-      <div class="add-task-button-container clickable" *ngIf="!newSubtaskMode" (click)="toggleNewSubtaskInputs()">
-        <span class="material-symbols-outlined">add</span> <span class="add-task-button-label">Add subtask</span> </div>
-      </div>
+
       <div *ngIf="newSubtaskMode">
         <input pInputText [(ngModel)]="editTask.newSubtask"/>
         <div class="buttons-container">
           <p-button severity="contrast" (click)="addSubtask()">Add subTask</p-button>
           <span class="clickable span-button" (click)="toggleNewSubtaskInputs()">Cancel</span>
         </div>
-
       </div>
-
-
-
-
-
-<!--    <div *ngIf="subTaskVisible">-->
-<!--      <input [(ngModel)]="newSubtask"/>-->
-<!--      <button (click)="addSubtask()">Add subTask</button>-->
-<!--    </div>-->
+      <!--    <div *ngIf="subTaskVisible">-->
+      <!--      <input [(ngModel)]="newSubtask"/>-->
+      <!--      <button (click)="addSubtask()">Add subTask</button>-->
+      <!--    </div>-->
+    </div>
+    <ng-content></ng-content>
+    <p-button severity="contrast" *ngIf="editMode" (click)="updateTask()">Done</p-button>
   </div>
 </div>
-<ng-content></ng-content>
-<p-button severity="contrast" *ngIf="editMode" (click)="updateTask()">Done</p-button>
+
