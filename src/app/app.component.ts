@@ -26,7 +26,7 @@ export class AppComponent implements OnInit{
   tasks: Task[] = [];
   priorities:Task['priority'][] = [
     'Critical', 'High', 'Medium', 'Low', 'Trivial']
-  detailSidebarVisible = true; //TODO: change to false
+  detailSidebarVisible = false;
   productsVisible = false;
   subTaskVisible = false;
 

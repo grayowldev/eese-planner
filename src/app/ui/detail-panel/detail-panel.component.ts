@@ -98,4 +98,12 @@ export class DetailPanelComponent {
       console.log('no task selected')
     }
   }
+  createTaskFromSubtask(subtask: SubTask) {
+    console.log('creating new task...')
+    const newTask: Task = {
+      title: subtask.title,
+      status: "Todo"
+    }
+    this.taskService.addTask(newTask)
+  }
 }

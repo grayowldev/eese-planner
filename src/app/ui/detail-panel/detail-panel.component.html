@@ -66,7 +66,11 @@
         <span class="material-symbols-outlined clickable" (click)="completeSubtask(subtask)">
           {{subtask.status === 'Completed' ? 'check_circle' : 'radio_button_unchecked'}}</span>
           <span class="icon-text">{{subtask.title}}</span>
-          <span class="edit material-symbols-outlined">edit</span>
+          <div>
+            <span class="edit material-symbols-outlined clickable" (click)="createTaskFromSubtask(subtask)">task</span>
+            <span class="edit material-symbols-outlined">edit</span>
+          </div>
+
           <hr class="horizontal-divider">
         </div>
         <div class="add-task-button-container clickable" *ngIf="!newSubtaskMode" (click)="toggleNewSubtaskInputs()">
@@ -80,13 +84,9 @@
           <span class="clickable span-button" (click)="toggleNewSubtaskInputs()">Cancel</span>
         </div>
       </div>
-      <!--    <div *ngIf="subTaskVisible">-->
-      <!--      <input [(ngModel)]="newSubtask"/>-->
-      <!--      <button (click)="addSubtask()">Add subTask</button>-->
-      <!--    </div>-->
     </div>
+
     <ng-content></ng-content>
     <p-button severity="contrast" *ngIf="editMode" (click)="updateTask()">Done</p-button>
   </div>
 </div>
-

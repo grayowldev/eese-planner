@@ -1,23 +1,4 @@
 <div class="container">
-<!--  <div class="product-selection-container">-->
-<!--    <div class="products">-->
-<!--      <div>-->
-<!--        <span>Goals</span>-->
-<!--      </div>-->
-<!--      <div>-->
-<!--        <span>Planner</span>-->
-<!--      </div>-->
-<!--      <div>-->
-<!--        <span>Tasks</span>-->
-<!--      </div>-->
-<!--      <div>-->
-<!--        <span>Calendar</span>-->
-<!--      </div>-->
-<!--      <div>-->
-<!--        <span>Habit</span>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
   <div class="title-container">
 <!--    <div>-->
 <!--      <span class="material-symbols-outlined hide-products">switch_left</span>-->
@@ -30,7 +11,7 @@
         <div class="add-task-form-container">
           <form (submit)="addTask()">
             <input pInputText type="text" placeholder="What's next?" name="newTask" [(ngModel)]="newTask" />
-            <p-button type="submit">
+            <p-button severity="contrast" type="submit">
               <span class="material-symbols-outlined">add</span>Add task</p-button>
           </form>
         </div>
