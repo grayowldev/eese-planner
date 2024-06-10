@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Task} from "../../../models/task";
 import {FormsModule} from "@angular/forms";
 import {NgForOf, NgIf} from "@angular/common";
@@ -22,7 +22,7 @@ import {DropdownModule} from "primeng/dropdown";
   templateUrl: './detail-panel.component.html',
   styleUrl: './detail-panel.component.scss'
 })
-export class DetailPanelComponent {
+export class DetailPanelComponent implements OnInit{
   @Input() task: Task = {};
 
   editTask = {
@@ -46,6 +46,11 @@ export class DetailPanelComponent {
   editMode = false;
 
   constructor(private taskService: TaskService) {
+
+  }
+
+  ngOnInit() {
+    this.editTask.title = this.task.title;
   }
 
   completeSubtask(subtask: SubTask) {
@@ -79,6 +84,12 @@ export class DetailPanelComponent {
   }
   updateTask() {
     this.toggleEditMode();
+    this.taskService.updateTask(this.task)
+  }
+  updateTitle() {
+    if (this.task) {
+      this.task.title = this.editTask.title;
+    }
   }
   updatePriority() {
     console.log('updated priority')

@@ -8,8 +8,13 @@
     </div>
   </div>
   <div class="panel-content-container">
-    <div class="task-title">
+    <div class="task-title" *ngIf="!editMode">
       <span>{{task.title}}</span>
+    </div>
+    <div class="task-title" *ngIf="editMode">
+<!--      <span>{{task.title}}</span>-->
+      <input pInputText [(ngModel)]="editTask.title" (change)="updateTitle()"/>
+<!--      <input [(ngModel)]="task.title"/>-->
     </div>
     <div class="panel-info-grid" *ngIf="!editMode">
       <span class="grid-section-left">Status:</span>
@@ -62,9 +67,11 @@
 
     <div class="panel-section">
       <div class="subtask-container">
+        <div class="subtask-title">Subtasks</div>
         <div class="subtask-list show-on-hover" *ngFor="let subtask of task.subtasks">
-        <span class="material-symbols-outlined clickable" (click)="completeSubtask(subtask)">
-          {{subtask.status === 'Completed' ? 'check_circle' : 'radio_button_unchecked'}}</span>
+          <span class="material-symbols-outlined clickable" (click)="completeSubtask(subtask)">
+            {{subtask.status === 'Completed' ? 'check_circle' : 'radio_button_unchecked'}}
+          </span>
           <span class="icon-text">{{subtask.title}}</span>
           <div>
             <span class="edit material-symbols-outlined clickable" (click)="createTaskFromSubtask(subtask)">task</span>
