@@ -1,6 +1,6 @@
 .container {
   display: grid;
-  grid-template-columns: 600px 1fr;
+  grid-template-columns: 400px 1fr;
   grid-template-rows: 64px 1fr 28px;
   height: 100vh;
   background: black;
@@ -20,14 +20,6 @@
   .product-item {
     padding: 64px;
     border: solid red;
-  }
-}
-
-.add-task-form-container {
-  margin-bottom: 18px;
-  input {
-    margin-right: 8px;
-    width: 80% //TODO: fix this later
   }
 }
 .close-button-container {
@@ -50,12 +42,7 @@
 .task-card-container {
   margin-bottom: 12px;
 }
-.tasks-container {
-  overflow: auto;
-  //height: 100vh;
-  margin-left: 30px;
-  padding: 20px  //TODO: remove this later
-}
+
 
 .product-selection-container {
   left: 0;
@@ -67,11 +54,6 @@
 }
 
 .content-container {
-  display: grid;
-  grid-column: 2/3;
-  grid-row: 2/3;
-  grid-template-columns: 1fr;
-  //border-radius: 12px 0 0 12px;
   background: white;
 }
 // TODO: remove the below item
