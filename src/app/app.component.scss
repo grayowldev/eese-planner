@@ -22,27 +22,6 @@
     border: solid red;
   }
 }
-.close-button-container {
-  border: solid 1px red;
-  margin-bottom: 64px;
-}
-.close-span-container {
-  float: right;
-}
-
-.detail-panel-sections {
-  border: solid 1px red;
-  margin-bottom: 24px;
-}
-.detail-panel-task-title {
-  border: solid 1px red;
-  margin-bottom: 24px;
-  font-size: 32px;
-}
-.task-card-container {
-  margin-bottom: 12px;
-}
-
 
 .product-selection-container {
   left: 0;
@@ -56,46 +35,13 @@
 .content-container {
   background: white;
 }
+
 // TODO: remove the below item
 .product-menu {
   background: lightblue;
   border-radius: 12px 0 0 12px;
 }
 
-.task-schedule {
-  background: pink;
-}
-
-.panel-container {
-  height: 100%;
-  position: fixed;
-  right: 0;
-  z-index: 1000;
-  background: white;
-}
-.panel-overlay {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  right: 0;
-
-}
-.detail-panel-container {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(51, 51,51, 0.8);
-}
-.add-task-input-container {
-  display: grid;
-  grid-template-columns: 1fr 134px;
-  gap: 8px;
-  input {
-    width: 100%;
-  }
-}
 
 
 
