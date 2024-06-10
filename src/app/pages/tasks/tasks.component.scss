@@ -1,0 +1,12 @@
+.tasks-container {
+  overflow: auto;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.add-task-form-container {
+  margin-bottom: 18px;
+  input {
+    margin-right: 8px;
+    width: 80% //TODO: fix this later
+  }
+}

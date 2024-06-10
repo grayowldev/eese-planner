@@ -1,0 +1,31 @@
+<div class="tasks-container">
+  <div class="task-input-container">
+    <div class="add-task-form-container">
+      <form (submit)="addTask()">
+        <div class="add-task-input-container">
+          <input pInputText type="text" placeholder="What's next?" name="newTask" [(ngModel)]="newTask" />
+          <p-button severity="contrast" type="submit">
+            <span class="material-symbols-outlined">add</span>Add task
+          </p-button>
+        </div>
+      </form>
+    </div>
+
+  </div >
+  <div class="task-card-container" *ngFor="let task of tasks">
+    <task-card
+      [task]="task"
+      (triggerDetailPanel)="showDetails(task)">
+      <h1>Task card</h1>
+    </task-card>
+  </div>
+  <div class="detail-panel-container" *ngIf="detailSidebarVisible">
+    <div class="panel-container">
+      <app-detail-panel
+        [task]="selectedTask">
+      </app-detail-panel>
+    </div>
+    <div class="panel-overlay" (click)="hideDetails()">
+    </div>
+  </div>
+</div>
