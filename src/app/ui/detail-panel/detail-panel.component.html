@@ -12,9 +12,7 @@
       <span>{{task.title}}</span>
     </div>
     <div class="task-title" *ngIf="editMode">
-<!--      <span>{{task.title}}</span>-->
-      <input pInputText [(ngModel)]="editTask.title" (change)="updateTitle()"/>
-<!--      <input [(ngModel)]="task.title"/>-->
+      <input pInputText [(ngModel)]="editTask.title"/>
     </div>
     <div class="panel-info-grid" *ngIf="!editMode">
       <span class="grid-section-left">Status:</span>
@@ -94,6 +92,10 @@
     </div>
 
     <ng-content></ng-content>
-    <p-button severity="contrast" *ngIf="editMode" (click)="updateTask()">Done</p-button>
+    <div class="buttons-container">
+      <p-button severity="contrast" *ngIf="editMode" (click)="updateTask()">Done</p-button>
+      <span class="clickable span-button" *ngIf="editMode" (click)="cancelEditTask()">Cancel</span>
+    </div>
+
   </div>
 </div>

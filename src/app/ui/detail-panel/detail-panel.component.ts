@@ -84,12 +84,10 @@ export class DetailPanelComponent implements OnInit{
   }
   updateTask() {
     this.toggleEditMode();
-    this.taskService.updateTask(this.task)
-  }
-  updateTitle() {
     if (this.task) {
       this.task.title = this.editTask.title;
     }
+    this.taskService.updateTask(this.task)
   }
   updatePriority() {
     console.log('updated priority')
@@ -116,5 +114,16 @@ export class DetailPanelComponent implements OnInit{
       status: "Todo"
     }
     this.taskService.addTask(newTask)
+  }
+  cancelEditTask() {
+    this.toggleEditMode();
+    this.editTask = {
+      newSubtask: '',
+      title: this.task.title,
+      status: this.task.status,
+      startDate: this.task.startDate,
+      dueDate: this.task.dueDate,
+      priority: this.task.priority
+    }
   }
 }
