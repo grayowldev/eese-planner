@@ -60,21 +60,6 @@ export class TasksComponent {
               // return -1;
           } else if ((b.status === 'Completed' && a.status === 'Todo') || (b.status === 'Completed' && a.status === null)) {
               finalPriority += 2;
-              // return 1;
-          } else {
-              // if (a.priority === undefined) {
-              //   a.priority = 'C';
-              // }
-              // if (b.priority === undefined) {
-              //   b.priority ='C';
-              // }
-              // if (a.priority < b.priority) {
-              //   return -1;
-              // } else if (a.priority > b.priority) {
-              //   return 1;
-              // } else {
-              //   return 0;
-              // }
           }
           if (a.priority === undefined) {
               a.priority = 'Medium';
@@ -89,10 +74,6 @@ export class TasksComponent {
               finalPriority += 1;
               // return 1;
           }
-          // else {
-          //
-          //   // return 0;
-          // }
           return finalPriority
       });
   }
