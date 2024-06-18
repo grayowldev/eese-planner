@@ -1,6 +1,6 @@
 .container {
   display: grid;
-  grid-template-columns: 400px 1fr;
+  grid-template-columns: 64px 1fr;
   grid-template-rows: 64px 1fr 28px;
   height: 100vh;
   background: black;
@@ -18,8 +18,7 @@
 }
 .product-menu {
   .product-item {
-    padding: 64px;
-    border: solid red;
+    padding: 8px;
   }
 }
 
